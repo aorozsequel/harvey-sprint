@@ -1,9 +1,25 @@
+import Hero from './components/Hero';
+import BioSection from './components/BioSection';
+import AboutSection from './components/AboutSection';
+import FullBleedPhoto from './components/FullBleedPhoto';
+import ServicesSection from './components/ServicesSection';
+import SelectedWorkSection from './components/SelectedWorkSection';
+import TestimonialsSection from './components/TestimonialsSection';
+import NewsSection from './components/NewsSection';
+import Footer from './components/Footer';
+
 export default function Home() {
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-black">
-      <h1 className="text-[20vw] font-black uppercase tracking-tighter text-yellow-400 leading-none font-serif">
-        harvey
-      </h1>
-    </div>
+    <main>
+      <Hero />
+      <BioSection />
+      <AboutSection />
+      <FullBleedPhoto />
+      <ServicesSection />
+      <SelectedWorkSection />
+      <TestimonialsSection />
+      <NewsSection />
+      <Footer />
+    </main>
   );
 }
