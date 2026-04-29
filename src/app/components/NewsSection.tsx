@@ -51,12 +51,12 @@ export default async function NewsSection() {
   }
 
   const articles: DisplayArticle[] = sanityArticles.length > 0
-    ? sanityArticles.map((a) => ({
+    ? sanityArticles.map((a, i) => ({
         _id: a._id,
         caption: a.caption,
         link: a.link || '#',
-        imgDesktop: a.image ? urlFor(a.image)?.width(800).url() ?? '' : '',
-        imgMobile: a.image ? urlFor(a.image)?.width(600).url() ?? '' : '',
+        imgDesktop: a.image ? urlFor(a.image)?.width(800).url() ?? fallbackArticles[i]?.fallbackImg ?? '' : fallbackArticles[i]?.fallbackImg ?? '',
+        imgMobile: a.image ? urlFor(a.image)?.width(600).url() ?? fallbackArticles[i]?.fallbackImgMobile ?? '' : fallbackArticles[i]?.fallbackImgMobile ?? '',
       }))
     : fallbackArticles.map((a) => ({
         _id: a._id,

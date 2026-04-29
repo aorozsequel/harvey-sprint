@@ -48,11 +48,11 @@ export default async function TestimonialsSection() {
   type DisplayItem = { _id: string; name: string; quote: string; logoSrc: string }
 
   const items: DisplayItem[] = sanityData.length > 0
-    ? sanityData.slice(0, 4).map((t) => ({
+    ? sanityData.slice(0, 4).map((t, i) => ({
         _id: t._id,
         name: t.name,
         quote: t.quote,
-        logoSrc: t.logo ? urlFor(t.logo)?.height(76).url() ?? '' : '',
+        logoSrc: t.logo ? urlFor(t.logo)?.height(76).url() ?? fallbackTestimonials[i]?.logo ?? '' : fallbackTestimonials[i]?.logo ?? '',
       }))
     : fallbackTestimonials.map((t) => ({ _id: t._id, name: t.name, quote: t.quote, logoSrc: t.logo }))
 
